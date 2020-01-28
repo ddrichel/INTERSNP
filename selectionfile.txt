@@ -1,0 +1,95 @@
+#Keyword        Parameter       Comment
+# data files
+FILE				// Path to SNP/Pedigree/Genotype files. The input format is the standard PLINK (2.2.1) format (map/ped).
+TFILE 				// Path to SNP/Pedigree/Genotype files. The input format is the transposed PLINK (2.2.1) format (tfam/tped).
+BFILE 				// Path to SNP/Pedigree/Genotype files. The input format is the binary PLINK (2.2.1) format (fam/bim/bed).
+MAP 				// Path to the .map file.
+PED				// Path to the .ped file.
+TFAM				// Path to the .tfam file.
+TPED				// Path to the .tped file.
+FAM	./test.fam		// Path to the .fam file.
+BMAP	./test.bim		// Path to the .bim file.
+BPED	./test.bed		// Path to the .bed file.
+ANNOTATIONFILE	./data/annotationIlluSorted.txt	// path to the annotation file
+PATHWAYFILE	./KEGG_2_snp_b129.txt				// path to the pathway file
+COVARIATEFILE									// path to the covariate file
+MODELFILE										// path to the model file
+SNPFILE											// path to the SNP file
+COMBIFILE										// path to the combi file
+# selection/reduction of data
+SNPLIST	0			// Use only these SNPs for the analysis
+COMBILIST	0		// Analyse only pairs or triples from the combi file
+ONLY_MALE	0		// 1=only male persons will be analyzed
+ONLY_FEMALE	0		// 1=only female persons will be analyzed
+POSCHOICE			// Selection of certain regions (ONLY the selected region will be analyzed);example:chr4;chr12,123000-160000;chr24;
+NEGCHOICE			// Exclusion of certain regions (These regions will NOT be analyzed)
+MATCHINGCHOICE		// Selection of certain regions for pairwise matching
+QT	0				// To use the analysis of quantitative traits
+MISSING_PHENO	-9	// To define the missing phenotype
+# output
+PRINTTOP		100	// Best n mulitmarker p-values are printed
+OUTPUTNAME	test_	// Specify the output name
+ANNOTATE			// Add annotation information in the output files
+GENECOL				// Specify column number of gene in the annotation information
+# quality control
+HWE_P_CASE	0.001		// QC-threshold for HWE in cases
+HWE_P_CONTROL	0.01	// QC-threshold for HWE in controls
+MRDIFF	0.1				// QC-threshold missing rate (mr): individuals and SNPs worse than the average mr + MRDIFF will be deleted
+MAF	0					// SNPs with lower MAF are deleted
+DOIBS	0				// calculate mean-IBS-status: 0=no, 1=yes, >1=yes and proceed
+IBS_SD_RELATIVES		// SD-limit for relatives
+IBS_SD_OUTLIER			// SD-limit for outlier
+# single and multi-marker analysis
+SINGLE_MARKER	1 		// 1=Armitage's trend test, 2=genotype test with 2 d.f., 3=logistic regression 1 d.f., 4=logistic regression 2 d.f.
+TWO_MARKER		0		// Two-marker-analysis: 1=yes, 0=no
+THREE_MARKER	0		// Three-marker-analysis: 1=yes, 0=no
+PRETEST			0		// Pre-test: 1=yes, 0=no
+PRETEST_CUTOFF	0.05	// Pre-test threshold
+TEST	1				// 1=chi-square-test, 2= log-linear model, 3-12=logistic regression, M=userdefined logistic regression model
+COVARIATES				// Covariates: all covariates 1-10; or for example 1;8-10;
+SEXCOV	0				// 1=sex as a covariate, 0=sex not as a covariate
+# priorities
+SINGLETOP	500				// Length n of the Single-marker-p-value's toplist
+M_WITH_SINGLETOP	0		// number of SNPs(0,1,2,3) which shall be selected from the Single-marker-p-value's toplist
+GENETIC_IMPACT	1			// Genetic impact: 0=none (gene desert), 1=close to gene, 2=within gene, 3=within coding region, 4=non-synonymous
+M_WITH_GENETIC_IMPACT	0	// Number of SNPs (0,1,2,3) which shall have at least the selected genetic impact
+SNP1						// Fix first SNP for analysis; specify rs number
+SNP2						// Fix 2ndSNP for analysis; specify rs number
+SNP3						// Fix 3rdSNP for analysis (possible only when THREE_MARKER=1); specify rs number
+PATHWAY	0					// 1=include pathway information,  0=no
+# pathway association analysis
+PATHWAYANALYSIS	0		// Pathway association analysis with one of the five pathway association tests
+PATHWAYTEST	2			// 1=SNP ratio, 2=Fisher score, 3=gene ratio, 4=Fisher Max), 5= Fisher maxPlus, 6= interaction ratio
+P_INTERRATIO	0.5		// p-value cut-off for test 6
+# haplotype analysis
+HAPLO				// Genome-wide Haplotype Analysis (GWHA)
+HAPLO_DIST			// Define the haplotype distance for pairs/triples
+DOHAPFILE			// produce proxy-file for YAMAS (section 2.5)
+# MC-Simulation
+SIMULATION		0	// Number of MC-simulations (0=no simulations will be conducted)
+MC_WITH_SM		0	// 1=MC-simulation for multimarker AND singlemarker test. 0=MC-simulation only for multimarker tests.
+# Rare Variants
+MAFT	0.05			// Set rare MAF threshold
+MAF_ADJUST	1		// Correct rare MAF for missings
+VT		1		// Optimize rare threshold (variable threshold analysis)
+BINSIZE_SNP			// Number of SNPs per bin
+BINSIZE_RARE	40		// Number of rare SNPs per bin
+BINSIZE_DIST			// Number of base pairs per bin
+RARE_TESTS	COLL;CMAT;FR; 	// Tests to be conducted
+GENERATE_SETID			// Do not perform analysis; generate SetID file
+SETID				// Name of SetID file defining the binning
+LAMBDA_ADJUST	0		// Lambda p correction for genome-wide FR tests
+PRESCREEN 0.0001		// Pretest before simulations are conducted: eliminate bins below (conservative) threshold		
+ADAPTIVE 0.001			// p-threshold for passing the adaptive permutation method usind Wilson score intervals
+MAF_ADJUST	1		// MAF is calculated from expected, (not observed) number of rare alleles in presence of missings. Only used to reduce the number of MAF levels for rare tests, no effect otherwise
+INTERVALFILE			// data/Ensembl_Genes75_hg19.txt // File containing intervals
+INTERVAL_FORMAT 		// HEAD="1";SEPARATOR="\t";COLUMNS="5";CHR="1";START="2";END="3";FEATURE="4";DESCRIPTION="5"; // Formatting of the interval file 
+MERGE_INTERVALS			// 1 for merging of overlapping intervals from file
+FLANKING			// Flanking of intervals in bp
+CONCATENATE_INTERVALS 		// Number of consecutive intervals to be concatenated
+CLOSE_GAPS	      	    	// 1 for expanding of intervals to uncovered space
+MIN_RARE_IN_BIN			// Filter bins: minimum required number of rare SNPs
+MAX_RARE_IN_BIN			// Maximum allowed number of rare SNPs. Bins split and written to a modified intervalfile.
+WEIGHTS				// 1/SD | BETA;1;25; | LOGISTIC;0.07;150; Weights of variants for non-collapsing tests (Wu et al. 2011)
+VERBOSE 2			// Verbosity level of rare variant analysis
+#END

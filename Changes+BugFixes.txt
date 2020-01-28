@@ -1,0 +1,60 @@
+INTERSNP VERSION 1.11
+
+Major update with multiple bugfixes and performance optimizations.
+
+INTERSNP-RARE (beta): Genome-Wide Rare Variant Analysis
+
+---------------------------------------------------------------------------------------------
+
+INTERSNP VERSION 1.0.10
+
+Added CaseOnly4DF function
+
+Added IBS matrix: definition of outliers and relatives is possible
+Added config-parameters for IBS analysis
+Converting IBS-determination to binary-format
+
+Added new pathway score: InteractionRatio “number of significant pairs / number of SNP pairs per pathway”.
+
+Binary coding to speed up the analysis with INTERSNP
+
+Changes in several functions because of the binary coding
+-> modified functions: qtreg, logreg, anova1df, anova4df
+
+Added pretest for interaction test 4 and 6
+
+fixed some bugs with Combilist and 3-marker
+bug fixed: Simulation and 3-Marker-Analysis
+
+Added Sidak correction instead of Bonferroni
+fixed lacks of the memory management
+
+Improved some output
+output-file linear regression: added rquare and Fstat
+small changes in singlemarker output
+
+PLINK binary files are now readable
+ped/map files are now readable
+
+added p-value filter (PFILTER)
+
+bug fix combilist
+
+Bug fixed in 3-marker-analysis + simulations
+Bug fixed in Singlemarker 1 with Chr X
+
+added caseOnly20DF and caseOnly20DF_X
+
+More than 10 covariates are allowed.
+
+---------------------------------------------------------------------------------------------
+
+INTERSNP VERSION 1.0.9
+A bug that occured when the parallel-Version of INTERSNP was used for quantitative trait data 
+together with the PATHWAY priority was fixed.
+
+Singlemarker analysis is now working correctly when HAPLO (haplotype analysis) is selected.
+
+Now there is no limit for the first line.
+
+Pathway Association Analysis was added in the documentation.
